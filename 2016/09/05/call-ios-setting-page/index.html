@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS跳转到自己的权限设置页面 | 何健源-个人笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 跳转到自己的权限设置页面当iOS App中需要的某种权限没有被授权的时候，需要引导用户手动打开]。通过以下代码可以跳转到系统设置里面本App的权限设置页面。1234 if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) &amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS跳转到自己的权限设置页面">
+<meta property="og:url" content="http://hexiaojian.com/2016/09/05/call-ios-setting-page/index.html">
+<meta property="og:site_name" content="何健源-个人笔记">
+<meta property="og:description" content="1. 跳转到自己的权限设置页面当iOS App中需要的某种权限没有被授权的时候，需要引导用户手动打开]。通过以下代码可以跳转到系统设置里面本App的权限设置页面。1234 if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) &amp;#123">
+<meta property="og:image" content="http://source.thinkcode.cn/post/img/call-setting-sample-pic.png">
+<meta property="og:image" content="http://source.thinkcode.cn/post/img/call-setting-prefs-info.png">
+<meta property="og:updated_time" content="2016-09-05T08:18:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS跳转到自己的权限设置页面">
+<meta name="twitter:description" content="1. 跳转到自己的权限设置页面当iOS App中需要的某种权限没有被授权的时候，需要引导用户手动打开]。通过以下代码可以跳转到系统设置里面本App的权限设置页面。1234 if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) &amp;#123">
+<meta name="twitter:image" content="http://source.thinkcode.cn/post/img/call-setting-sample-pic.png">
+  
+    <link rel="alternative" href="/atom.xml" title="何健源-个人笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href=" http://source.thinkcode.cn/yilia/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://source.thinkcode.cn/header.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">健源</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/cnthinkcode" title="github">github</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/FuckJeeer" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">健源</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://source.thinkcode.cn/header.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">健源</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/cnthinkcode" title="github">github</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/FuckJeeer" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-call-ios-setting-page" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/05/call-ios-setting-page/" class="article-date">
+  	<time datetime="2016-09-05T03:59:46.000Z" itemprop="datePublished">2016-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS跳转到自己的权限设置页面
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-跳转到自己的权限设置页面"><a href="#1-跳转到自己的权限设置页面" class="headerlink" title="1. 跳转到自己的权限设置页面"></a>1. 跳转到自己的权限设置页面</h3><p>当iOS App中需要的某种权限没有被授权的时候，需要引导用户手动打开]。通过以下代码可以跳转到系统设置里面本App的权限设置页面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]])</div><div class="line"> &#123;</div><div class="line">    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><img src="http://source.thinkcode.cn/post/img/call-setting-sample-pic.png" alt="示例图片"></p>
+<p>如果App没有申请任何权限，将会跳转到“设置”首页。</p>
+<h3 id="2-跳到指定的设置界面"><a href="#2-跳到指定的设置界面" class="headerlink" title="2. 跳到指定的设置界面"></a>2. 跳到指定的设置界面</h3><p>iOS App可以跳转到指定的设置界面比如无线网络设置界面 蜂窝网络设置界面 定位设置界面等<br>首先需要设置URL Types，如下图</p>
+<p><img src="http://source.thinkcode.cn/post/img/call-setting-prefs-info.png" alt="示例图片"></p>
+<p>然后通过以下代码就可以跳转到指定的设置页面了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@&quot;指定设置项的url&quot;]]) &#123;</div><div class="line">     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@&quot;指定设置项的url&quot;]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>比如跳转到定位服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@&quot;prefs:root=LOCATION_SERVICES&quot;]];</div></pre></td></tr></table></figure></p>
+<h4 id="iOS-系统功能的-URL-汇总列表"><a href="#iOS-系统功能的-URL-汇总列表" class="headerlink" title="iOS 系统功能的 URL 汇总列表"></a>iOS 系统功能的 URL 汇总列表</h4><blockquote>
+<p>蜂窝网络：prefs:root=MOBILE_DATA_SETTINGS_ID<br>VPN — prefs:root=General&amp;path=Network/VPN<br>Wi-Fi：prefs:root=WIFI<br>定位服务：prefs:root=LOCATION_SERVICES<br>个人热点：prefs:root=INTERNET_TETHERING<br>关于本机：prefs:root=General&amp;path=About<br>辅助功能：prefs:root=General&amp;path=ACCESSIBILITY<br>飞行模式：prefs:root=AIRPLANE_MODE<br>锁定：prefs:root=General&amp;path=AUTOLOCK<br>亮度：prefs:root=Brightness<br>蓝牙：prefs:root=General&amp;path=Bluetooth<br>时间设置：prefs:root=General&amp;path=DATE_AND_TIME<br>FaceTime：prefs:root=FACETIME<br>设置：prefs:root=General<br>键盘设置：prefs:root=General&amp;path=Keyboard<br>iCloud：prefs:root=CASTLE<br>iCloud备份：prefs:root=CASTLE&amp;path=STORAGE_AND_BACKUP<br>语言：prefs:root=General&amp;path=INTERNATIONAL<br>定位：prefs:root=LOCATION_SERVICES<br>音乐：prefs:root=MUSIC<br>Music Equalizer — prefs:root=MUSIC&amp;path=EQ<br>Music Volume Limit — prefs:root=MUSIC&amp;path=VolumeLimit<br>Network — prefs:root=General&amp;path=Network<br>Nike + iPod — prefs:root=NIKE_PLUS_IPOD<br>Notes — prefs:root=NOTES<br>Notification — prefs:root=NOTIFICATIONS_ID<br>Phone — prefs:root=Phone<br>Photos — prefs:root=Photos<br>Profile — prefs:root=General&amp;path=ManagedConfigurationList<br>Reset — prefs:root=General&amp;path=Reset<br>Safari — prefs:root=Safari<br>Siri — prefs:root=General&amp;path=Assistant<br>Sounds — prefs:root=Sounds<br>Software Update — prefs:root=General&amp;path=SOFTWARE_UPDATE_LINK<br>Store — prefs:root=STORE<br>Twitter — prefs:root=TWITTER<br>Usage — prefs:root=General&amp;path=USAGE<br>Wallpaper — prefs:root=Wallpaper</p>
+</blockquote>
+<p>参考:<br><a href="http://www.jianshu.com/p/8e354e684e8a" target="_blank" rel="external">Rejected 《iOS 跳转到设置界面》</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="call-ios-setting-page" data-title="iOS跳转到自己的权限设置页面" data-url="http://hexiaojian.com/2016/09/05/call-ios-setting-page/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hejianyuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 健源
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
